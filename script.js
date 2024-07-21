@@ -1,17 +1,7 @@
 const myLibrary = []
 
-const selectorInput = {
-
-    'title book': document.querySelector('input#title-book'),
-    'author book': document.querySelector('input#author-book'),
-    'pages book': document.querySelector('input#pages-book'),
-    'read book': document.querySelector('input#read-book'),
-    'submit book': document.querySelector('button[type=submit]'),
-
-}
-
 function Book(title, author, pages, read) {
-
+    
     this.title = title
     this.author = author
     this.pages = pages
@@ -19,8 +9,16 @@ function Book(title, author, pages, read) {
     
 }
 
-function AddBookToLibrary() {
+function addBookToLibrary() {
 
+    const selectorInput = {
+    
+        'title book': document.querySelector('input#title-book'),
+        'author book': document.querySelector('input#author-book'),
+        'pages book': document.querySelector('input#pages-book'),
+        'read book': document.querySelector('input[name=read-progress]:checked'),
+        }
+    
     myLibrary.push(
         new Book(
             selectorInput['title book'].value,
@@ -33,4 +31,4 @@ function AddBookToLibrary() {
 
 }
 
-selectorInput['submit book'].addEventListener('click', AddBookToLibrary)
+document.querySelector('button[type=submit]').addEventListener('click', AddBookToLibrary)

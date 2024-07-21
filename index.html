@@ -21,11 +21,18 @@
                 </div>
                 <div>
                     <label for="pages-book">Pages</label>
-                    <input type="text" id="pages-book">
+                    <input type="number" id="pages-book">
                 </div>
                 <div>
-                    <label for="read-book">Read progress</label>
-                    <input type="text" id="read-book">
+                    <fieldset>
+                        <legend>Reading progress</legend>
+                        <label for="read">Already read</label>
+                        <input type="radio" id="read" name="read-progress" value="already read">
+                        <label for="not-read">Not yet read</label>
+                        <input type="radio" id="not-read" name="read-progress" value="not yet" checked>
+                        <label for="reading">In progress</label>
+                        <input type="radio" id="reading" name="read-progress" value="reading">
+                    </fieldset>
                 </div>
                 <div>
                     <label for="language">Language</label>
