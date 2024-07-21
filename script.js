@@ -31,4 +31,4 @@ function addBookToLibrary() {
 
 }
 
-document.querySelector('button[type=submit]').addEventListener('click', AddBookToLibrary)
+document.querySelector('button[type=submit]').addEventListener('click', addBookToLibrary)
