@@ -10,6 +10,10 @@ function Book(title, author, pages, read, language, genre) {
     this.genre = genre
 }
 
+Book.prototype.sayHello = {
+    say: function() {alert('hello world!')},
+}
+
 function addBookToLibrary() {
 
     const selectorInput = {
@@ -32,6 +36,13 @@ function addBookToLibrary() {
             selectorInput['genre book'].value,
         )
     )
+
+    selectorInput['title book'].value = ''
+    selectorInput['author book'].value = ''
+    selectorInput['pages book'].value = ''
+    selectorInput['language book'].value = ''
+    selectorInput['genre book'].value = ''
+
     event.preventDefault()
 
 }
