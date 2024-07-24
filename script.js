@@ -13,9 +13,19 @@ function Book(title, author, pages, read, language, genre) {
 function addBookToLibrary() {
 
     const containerBook = document.querySelector('div.container-book')
+
     const containerInformationBook = document.createElement('div')
     containerInformationBook.classList.toggle('container-information-book')
     containerBook.appendChild(containerInformationBook)
+
+    function btnBook(name, classDoc, contentDoc, container) {
+
+        name = document.createElement('button')
+        name.classList.toggle(`${classDoc}`)
+        name.textContent = `${contentDoc}`
+        container.appendChild(name)
+
+    }
 
     function displayBook(structureDoc, classDoc, contentDoc, container) {
 
@@ -54,6 +64,8 @@ function addBookToLibrary() {
     displayBook('div', 'read-progress-book', 'read', containerInformationBook)
     displayBook('div', 'language-book', 'language', containerInformationBook)
     displayBook('div', 'genre-book', 'genre', containerInformationBook)
+    btnBook('btnChangeReadProgress', 'change-read-progress', 'Change read progress', containerInformationBook)
+    btnBook('btnRemoveBook', 'remove-book', 'Remove book', containerInformationBook)
 
     selectorInput['title book'].value = ''
     selectorInput['author book'].value = ''
