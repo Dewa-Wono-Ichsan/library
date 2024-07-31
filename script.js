@@ -69,10 +69,11 @@ function addBookToLibrary() {
 
     let bookDocNum = myLibrary.length
     let bookArrNum = myLibrary.length - 1
+
     let btnChangeReadProgress = document.querySelector(`.container-information-book:nth-child(${bookDocNum})>.change-read-progress`)
     let bookReadData = document.querySelector(`.container-information-book:nth-child(${bookDocNum})>.read-progress-book`)
-
-    btnChangeReadProgress.addEventListener('click', function() {
+    
+    function assignRead() {
 
         if(myLibrary[bookArrNum].read === 'not yet') {
             myLibrary[bookArrNum].read = 'reading'
@@ -89,7 +90,16 @@ function addBookToLibrary() {
         } else {
             bookReadData.textContent = 'not yet'
         }
-    })
+    }
+
+    btnChangeReadProgress.addEventListener('click',assignRead )
+    let btnRemoveBook = document.querySelector(`.container-information-book:nth-child(${bookDocNum})>.remove-book`)
+
+    btnRemoveBook.addEventListener('click', function() {
+            myLibrary.splice(bookArrNum, 1)
+            document.querySelector(`.container-information-book`).remove()
+        }
+    )
 
     selectorInput['title book'].value = ''
     selectorInput['author book'].value = ''
